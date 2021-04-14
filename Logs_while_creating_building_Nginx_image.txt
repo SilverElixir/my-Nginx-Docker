@@ -1,0 +1,39 @@
+root@ip-172-31-16-178:/Documents# docker build -t my-nginx .
+Sending build context to Docker daemon  2.048kB
+[WARNING]: Empty continuation line found in:
+    RUN apk update     && apk add nginx     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* COPY custom.conf /etc/nginx/conf.d/
+[WARNING]: Empty continuation lines will become errors in a future release.
+Step 1/4 : FROM nginx:alpine
+alpine: Pulling from library/nginx
+ca3cd42a7c95: Pull complete
+e201e88c7e5d: Pull complete
+51cf89a5af76: Pull complete
+87a4227331de: Pull complete
+7609ee2c5170: Pull complete
+5f2b5d63b1cd: Pull complete
+Digest: sha256:43aee115b798c2e923473f22e08c7abd715ad252262953f7da1c6a13f8c5a5c8
+Status: Downloaded newer image for nginx:alpine
+ ---> 45eaf9111863
+Step 2/4 : RUN apk update     && apk add nginx     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* COPY custom.conf /etc/nginx/conf.d/
+ ---> Running in 7e55b3aad586
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+v3.13.4-69-g5bcff43ec5 [https://dl-cdn.alpinelinux.org/alpine/v3.13/main]
+v3.13.4-66-g32aee0eba0 [https://dl-cdn.alpinelinux.org/alpine/v3.13/community]
+OK: 13895 distinct packages available
+OK: 25 MiB in 42 packages
+Removing intermediate container 7e55b3aad586
+ ---> e779c04a8b6f
+Step 3/4 : EXPOSE 81
+ ---> Running in e5b1c812b3a0
+Removing intermediate container e5b1c812b3a0
+ ---> ad348f712dd3
+Step 4/4 : CMD ["nginx","-g","daemon off;"]
+ ---> Running in 68fb460160f5
+Removing intermediate container 68fb460160f5
+ ---> 96df1a55628f
+Successfully built 96df1a55628f
+Successfully tagged my-nginx:latest
+root@ip-172-31-16-178:/Documents#
+root@ip-172-31-16-178:/Documents#
+

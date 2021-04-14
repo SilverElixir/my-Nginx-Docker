@@ -1,0 +1,29 @@
+
+root@ip-172-31-16-178:/Documents# docker login --username=violet7elixir
+Password:
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+root@ip-172-31-16-178:/Documents# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+my-nginx            latest              96df1a55628f        12 minutes ago      24.7MB
+nginx               alpine              45eaf9111863        17 hours ago        22.6MB
+nginx               latest              519e12e2a84a        4 days ago          133MB
+hello-world         latest              d1165f221234        5 weeks ago         13.3kB
+root@ip-172-31-16-178:/Documents#
+root@ip-172-31-16-178:/Documents#
+root@ip-172-31-16-178:/Documents# docker tag 96df1a55628f violet7elixir/my-nginx:nginxtag
+root@ip-172-31-16-178:/Documents# docker push violet7elixir/my-nginx
+The push refers to repository [docker.io/violet7elixir/my-nginx]
+f7ae83658d34: Pushed
+c544e70ea67a: Mounted from library/nginx
+655c746e0c1e: Mounted from library/nginx
+f6534dec60a1: Mounted from library/nginx
+13e5a1be3d15: Mounted from library/nginx
+4df87ade2e17: Mounted from library/nginx
+8ea3b23f387b: Mounted from library/nginx
+nginxtag: digest: sha256:fb0d482c1c2f3afeb4b331178431139474f93cc36ddc711a2233e98699b33784 size: 1779
+root@ip-172-31-16-178:/Documents#
+
